@@ -87,7 +87,22 @@ a {
                 padding: 20px; /* que el contenido no se pegue al borde */
                 border-image: url("corazones.png") 200 round; /* marco de corazones */
 
+  cursor: url('https://cur.cursors-4u.net/others/oth-1/oth64.cur'), auto;
+}
+
+/* Corazón fugaz */
+.shooting-heart {
+  position: fixed;
+  font-size: 30px;
+  animation: shoot 3s linear forwards;
+  z-index: 10;
+  pointer-events: none;
     }
+    
+@keyframes shoot {
+  0% { transform: translate(-10vw, 50vh) rotate(0deg); opacity: 1; }
+  100% { transform: translate(110vw, -50vh) rotate(720deg); opacity: 0; }
+}
 
     /* CORAZONES FLOTANDO */
     .heart {
@@ -100,6 +115,66 @@ a {
       opacity: 0.7;
       z-index: 0;
     }
+
+
+.confetti {
+  position: fixed;
+  font-size: 18px;
+  animation: fall 5s linear forwards;
+  pointer-events: none;
+  z-index: 5;
+}
+@keyframes fall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* Fondo dinámico (degradado que cambia) */
+@keyframes gradient {
+  0% { background: linear-gradient(135deg, pink, hotpink, deeppink); }
+  50% { background: linear-gradient(135deg, hotpink, violet, pink); }
+  100% { background: linear-gradient(135deg, pink, hotpink, deeppink); }
+}
+body {
+  animation: gradient 15s infinite alternate;
+}
+
+/* Cartita */
+.cartita {
+  background: white;
+  color: deeppink;
+  width: 250px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px hotpink;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+.cartita.abierta {
+  transform: scale(1.2) rotate(-2deg);
+  background: mistyrose;
+}
+.galeria { 
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  box-shadow: 0 0 30px pink;
+}
+
+.galeria img {
+  width: 10%;              /* ahora entran 4 imágenes a la vez */
+  flex-shrink: 0;
+  animation: slide 10s linear infinite;
+  border-radius: 15px;     /* opcional, para que cada imagen tenga esquinas suaves */
+}
+
+/* Animación de desplazamiento */
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
     .heart:before,
     .heart:after {
       content: "";
@@ -195,8 +270,32 @@ a {
 
   </div>
   <h2>Nosotras, la prueba viviente de que la amistad es magia 💕</h2>
-  <img src="ellayyo.jpeg" alt="Foto de las dos" width="300">
+<!-- Cartita desplegable -->
+<div class="cartita" onclick="toggleCartita()">📩 Haz clic para abrir la cartita 💖</div>
 
+<!-- Galería de fotos -->
+<div class="galeria">
+      <img src="ellayyo.jpg" alt="foto 1">
+
+  <img src="foto.jpg" alt="foto 1">
+  
+  <img src="foto2.jpg" alt="foto 2">
+  <img src="foto3.jpg" alt="foto 3">
+  <img src="foto4.jpg" alt="foto 4">
+    <img src="foto5.jpg" alt="foto 1">
+  <img src="foto6.jpg" alt="foto 2">
+  <img src="foto7.jpg" alt="foto 3">
+  <img src="foto8.jpg" alt="foto 4">
+    <img src="foto9.jpg" alt="foto 1">
+  <img src="foto10.jpg" alt="foto 2">
+  <img src="foto11.jpg" alt="foto 3">
+  <img src="foto12.jpg" alt="foto ">
+    <img src="foto13.jpg" alt="foto ">
+  <img src="foto14.jpg" alt="foto ">
+  <img src="foto15.jpg" alt="foto ">
+  <img src="foto16.jpg" alt="foto ">
+    <img src="foto17.jpg" alt="foto 4">
+</div>
   <h3>
     Te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo...  
     (y lo repetiría hasta el infinito ♾️💘)
@@ -255,6 +354,38 @@ a {
   }
   setInterval(createTinyHeart, 300);
 </script>
+<script>
+  // Corazones fugaces
+  function shootingHeart() {
+    const heart = document.createElement("div");
+    heart.className = "shooting-heart";
+    heart.innerHTML = "💘";
+    heart.style.top = Math.random() * 100 + "vh";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 3000);
+  }
+  setInterval(shootingHeart, 7000);
 
+  // Confetti corazones
+  function createConfetti() {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.innerHTML = ["💖","💞","💕","💓"][Math.floor(Math.random()*4)];
+    confetti.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 5000);
+  }
+  setInterval(createConfetti, 400);
+
+  // Cartita desplegable
+  function toggleCartita() {
+    document.querySelector(".cartita").classList.toggle("abierta");
+    if (document.querySelector(".cartita").classList.contains("abierta")) {
+      document.querySelector(".cartita").innerHTML = "💌 Sos el amor de mi vida, y nunca vas a dejar de serlo💕";
+    } else {
+      document.querySelector(".cartita").innerHTML = "📩 hacé clic para abrir la cartita 💖";
+    }
+  }
+</script>
 </body>
 </html>
