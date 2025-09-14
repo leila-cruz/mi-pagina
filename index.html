@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>🌸💕 Para mi Euge 💕🌸</title>
+      <link rel="icon" type="image/webp" href="corazon.webp">
+
   <style>
     .tiny-heart {
   position: fixed;
@@ -87,7 +89,7 @@ a {
                 padding: 20px; /* que el contenido no se pegue al borde */
                 border-image: url("corazones.png") 200 round; /* marco de corazones */
 
-  cursor: url('https://cur.cursors-4u.net/others/oth-1/oth64.cur'), auto;
+  cursor: url('https://cdn-icons-png.flaticon.com/256/6782/6782784.png') 16 16, auto;
 }
 
 /* Corazón fugaz */
@@ -259,8 +261,10 @@ body {
 </head>
 <body>
 
-  <h1>💖 Aniversario con mi Euge 💖</h1>
+  <h1>💖 NUESTRO ANIVERSARIO💖</h1>
   <h2>✨ 14 de septiembre de 2021 ✨</h2>
+  <h2> Nos conocimos solo por azares del destino, tal vez como todo en la vida, pero sin embargo, cada vez que cuento cómo te conocí (que no han sido muchas porque siento que no todos merecen saberlo) me siento orgullosa, dichosa de haber sido la que aquel 14 de septiembre haya recibido tu mensaje.
+Aunque a veces sin querer te dé por garantizada (algo que se hace justamente con todo lo bueno que uno tiene), a diario  agradezco haberte conocido. Te quiero tanto que muchas veces no sé qué hacer con todo el amor que tengo y aunque, en efecto, falle en expresarlo, espero que sientas y sepas que te voy a querer para siempre.</h2>
     <div class="us">
 
     <img src="uss.jpg" alt="foto de nosotras" width="300">
@@ -271,11 +275,11 @@ body {
   </div>
   <h2>Nosotras, la prueba viviente de que la amistad es magia 💕</h2>
 <!-- Cartita desplegable -->
-<div class="cartita" onclick="toggleCartita()">📩 Haz clic para abrir la cartita 💖</div>
+<div class="cartita" onclick="toggleCartita()">📩 hacé clic para abrir  💖</div>
 
 <!-- Galería de fotos -->
 <div class="galeria">
-      <img src="ellayyo.jpg" alt="foto 1">
+      <img src="ellayyo.jpeg" alt="foto 1">
 
   <img src="foto.jpg" alt="foto 1">
   
@@ -321,7 +325,7 @@ body {
     y la persona con quien comparto  
     los mejores momentos 💖.<br><br>
 
-    ¡Feliz aniversario de amistad, Euge!  
+    ¡Feliz aniversario de este amor que solo crece, bb!  
     Te quiero con todo mi corazón 💕🌈
   </div>
   <h3> Te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo, te amo.</h3>
@@ -386,6 +390,20 @@ body {
       document.querySelector(".cartita").innerHTML = "📩 hacé clic para abrir la cartita 💖";
     }
   }
+</script>
+<audio id="miCancion" loop>
+  <source src="4you.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const musica = document.getElementById("miCancion");
+  function activarMusica() {
+    musica.play();
+    document.removeEventListener("click", activarMusica);
+  }
+  document.addEventListener("click", activarMusica);
+});
 </script>
 </body>
 </html>
